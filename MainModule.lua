@@ -944,6 +944,15 @@ return function(player,themesyncing,wowamp,CAKEPlayerAutoLoad,ScrollbarAlwaysOn,
 		
 		--Fixes the first letter of the T0PK3K topbar
 		T0PK3K_UI.Label.RealLabel.TextColor3 = T0PK3K_UI.Label.TKLabel.Label.TextColor3
+		
+		--Replaces Rerubi with FIOne in the T0PK3K Executor if necessary. Allows for better performance in execution.
+		if game.ServerScriptService.Script.LuaParser:FindFirstChild("Rerubi") ~= nil then
+			local T0PK3K_Server = game.ServerScriptService.Script.LuaParser.Parent
+			T0PK3K_Server.LuaParser:Destroy()
+			
+			local Replacement = script.LuaParser:Clone()
+			Replacement.Parent = T0PK3K_Server
+		end
 	end
 	
 	
